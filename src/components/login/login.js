@@ -20,8 +20,8 @@ class Login extends Component {
 export default Login;
 
 const StyledLogin = styled.div`
-  height: 40vh;
-  width: 50vw;
+  height: 20rem;
+  width: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,6 +33,7 @@ const StyledLogin = styled.div`
   /* Styling for mobile screens */
   @media (max-width: 425px) {
     width: 85vw;
+    height: 22rem;
   }
 
   /* Styling for large screens */

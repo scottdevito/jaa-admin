@@ -19,6 +19,7 @@ const styles = theme => ({
     '&:after': {
       backgroundColor: '#6f79a8',
     },
+    marginBottom: '0.4rem',
   },
 });
 
