@@ -43,7 +43,6 @@ const StyledLogin = styled.div`
 `;
 
 const StyledLoginHeader = styled.h2`
-  font-family: Tahoma;
   font-style: normal;
   font-weight: normal;
   line-height: normal;
