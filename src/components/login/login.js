@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Button from 'material-ui/Button';
+import LoginField from './login_field.MUI';
 
 class Login extends Component {
   render() {
     return (
       <StyledLogin>
         <StyledLoginHeader>Login</StyledLoginHeader>
+        <LoginField labelName={'Username'} labelType={'username'} />
+        <LoginField labelName={'Password'} labelType={'password'} />
+
+        <Button style={{ marginTop: '1rem' }}>Login</Button>
       </StyledLogin>
     );
   }
@@ -14,7 +20,7 @@ class Login extends Component {
 export default Login;
 
 const StyledLogin = styled.div`
-  height: 50vh;
+  height: 40vh;
   width: 50vw;
   display: flex;
   flex-direction: column;
@@ -35,12 +41,10 @@ const StyledLogin = styled.div`
   }
 `;
 
-const StyledLoginHeader = styled.h1`
+const StyledLoginHeader = styled.h2`
   font-family: Tahoma;
   font-style: normal;
   font-weight: normal;
   line-height: normal;
-  font-size: 18px;
-
   color: #6f79a8;
 `;
