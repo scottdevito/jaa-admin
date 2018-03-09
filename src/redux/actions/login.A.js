@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 import { LOGIN_SUCCESS, LOGIN_FAIL } from './types';
 
-const Login = () => {
+const Login = (user, password) => {
   return async dispatch => {
     try {
       const data = await firebase

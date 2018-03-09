@@ -33,7 +33,7 @@ function LoginField(props) {
           FormControlClasses={{
             focused: classes.inputLabelFocused,
           }}
-          htmlFor="custom-color-input"
+          htmlFor={`custom-color-input ${props.labelName}`}
         >
           {props.labelName}
         </InputLabel>
@@ -41,8 +41,11 @@ function LoginField(props) {
           classes={{
             inkbar: classes.inputInkbar,
           }}
-          id="custom-color-input"
+          id={`custom-color-input ${props.labelName}`}
           type={props.labelType}
+          onChange={event => {
+            props.onInputChange(event, props.labelType);
+          }}
         />
       </FormControl>
     </div>

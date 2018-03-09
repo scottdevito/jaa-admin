@@ -4,14 +4,46 @@ import Button from 'material-ui/Button';
 import LoginField from './login_field.MUI';
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: '',
+      password: '',
+    };
+  }
+
+  onInputChange = (event, inputType) => {
+    let value = event.target.value;
+
+    this.setState((prevState, props) => {
+      return { [inputType]: value };
+    });
+  };
+
   render() {
     return (
       <StyledLogin>
         <StyledLoginHeader>Login</StyledLoginHeader>
-        <LoginField labelName={'Username'} labelType={'username'} />
-        <LoginField labelName={'Password'} labelType={'password'} />
+        <LoginField
+          labelName={'Email'}
+          labelType={'email'}
+          onInputChange={this.onInputChange}
+        />
+        <LoginField
+          labelName={'Password'}
+          labelType={'password'}
+          onInputChange={this.onInputChange}
+        />
 
-        <Button style={{ marginTop: '1rem' }}>Login</Button>
+        <Button
+          style={{ marginTop: '1rem' }}
+          onClick={() => {
+            this.props.Login(this.state.email, this.state.password);
+          }}
+        >
+          Login
+        </Button>
       </StyledLogin>
     );
   }
