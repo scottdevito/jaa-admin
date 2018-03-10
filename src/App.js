@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+// import firebase from 'firebase';
 
 import Login from './components/login/login';
+import AdminConsoleContainer from './containers/admin_console.C';
 
 class App extends Component {
+  // componentWillMount() {
+  //   // Listen for Auth Changes
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     if (user) {
+  //       this.props.loginPersist(user);
+  //     } else {
+  //       //this.props.logout();
+  //     }
+  //   });
+  // }
+
   render() {
     return (
       <StyledApp>
-        <Login />
+        {this.props.loggedIn ? (
+          <AdminConsoleContainer />
+        ) : (
+          <Login Login={this.props.Login} />
+        )}
       </StyledApp>
     );
   }

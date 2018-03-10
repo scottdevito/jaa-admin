@@ -3,7 +3,9 @@ import App from '../App';
 import { Login } from '../redux/actions/index';
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    loggedIn: state.loggedIn,
+  };
 };
 
 const mapDispatchToProps = {
