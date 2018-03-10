@@ -20,10 +20,10 @@ class App extends Component {
   render() {
     return (
       <StyledApp>
-        {this.props.loggedIn ? (
+        {this.props.loggedIn.valueOf() ? (
           <AdminConsoleContainer />
         ) : (
-          <Login Login={this.props.Login} />
+          <Login login={this.props.login} />
         )}
       </StyledApp>
     );

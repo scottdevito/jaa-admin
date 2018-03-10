@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import AdminTabs from './admin_tabs.MUI';
 
 class AdminConsole extends Component {
+  componentDidMount() {
+    this.props.getWorkshopsData().then(() => {
+      this.props.getPodcastData();
+    });
+  }
+
   render() {
     return (
       <AdminConsoleWrapper>

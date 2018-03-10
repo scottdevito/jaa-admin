@@ -1,3 +1,4 @@
-import { Login } from './login.A';
+import { login } from './login.A';
+import { getWorkshopsData, getPodcastData } from './getData.A';
 
-export { Login };
+export { login, getWorkshopsData, getPodcastData };

@@ -1,27 +1,28 @@
 import firebase from 'firebase';
 import { LOGIN_SUCCESS, LOGIN_FAIL } from './types';
 
-const Login = (user, password) => {
+const login = (user, password) => {
   return async dispatch => {
     try {
       const data = await firebase
         .auth()
         .signInWithEmailAndPassword(user, password);
-      dispatch(LoginSuccess(data));
+
+      dispatch(loginSuccess(data));
     } catch (error) {
       // Login Fail
-      dispatch(LoginFail(error));
+      dispatch(loginFail(error));
     }
   };
 };
 
-const LoginSuccess = data => {
+const loginSuccess = data => {
   return dispatch => {
     dispatch({ type: LOGIN_SUCCESS, payload: data });
   };
 };
 
-const LoginFail = error => {
+const loginFail = error => {
   return dispatch => {
     dispatch({ type: LOGIN_FAIL, payload: error });
     console.error(error);
@@ -38,4 +39,4 @@ const LoginFail = error => {
 //   };
 // };
 
-export { Login };
+export { login };

@@ -39,7 +39,7 @@ class Login extends Component {
         <Button
           style={{ marginTop: '1rem' }}
           onClick={() => {
-            this.props.Login(this.state.email, this.state.password);
+            this.props.login(this.state.email, this.state.password);
           }}
         >
           Login

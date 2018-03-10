@@ -1,3 +1,11 @@
 // Login
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
+
+// Podcast
+export const GET_EPISODES_SUCCESS = 'GET_EPISODES_SUCCESS';
+export const GET_EPISODES_FAIL = 'GET_EPISODES_FAIL';
+
+// Workshops
+export const GET_WORKSHOPS_SUCCESS = 'GET_WORKSHOPS_SUCCESS';
+export const GET_WORKSHOPS_FAIL = 'GET_WORKSHOPS_FAIL';
