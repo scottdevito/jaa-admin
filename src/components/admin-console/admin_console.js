@@ -39,7 +39,6 @@ const AdminConsoleWrapper = styled.div`
   /* Styling for mobile screens */
   @media (max-width: 425px) {
     width: 85vw;
-    height: 26rem;
   }
 
   /* Styling for large screens */
