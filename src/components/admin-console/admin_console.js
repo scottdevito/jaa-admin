@@ -6,7 +6,7 @@ class AdminConsole extends Component {
   render() {
     return (
       <AdminConsoleWrapper>
-        <AdminTabs />Admin Console
+        <AdminTabs />
       </AdminConsoleWrapper>
     );
   }

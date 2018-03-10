@@ -5,6 +5,10 @@ import SwipeableViews from 'react-swipeable-views';
 import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import Typography from 'material-ui/Typography';
+import styled from 'styled-components';
+
+import WorkshopsTabContainer from './workshops/workshops_tab_container';
+import PodcastsTabContainer from './podcasts/podcasts_tab_container';
 
 function TabContainer({ children, dir }) {
   return (
@@ -23,6 +27,7 @@ const styles = theme => ({
   root: {
     backgroundColor: theme.palette.background.paper,
     width: '100%',
+    height: '100%',
   },
 });
 
@@ -56,14 +61,18 @@ class FullWidthTabs extends React.Component {
             <Tab label="Podcasts" />
           </Tabs>
         </AppBar>
-        <SwipeableViews
+        <StyledSwipeableViews
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={this.state.value}
           onChangeIndex={this.handleChangeIndex}
         >
-          <TabContainer dir={theme.direction}>Item One</TabContainer>
-          <TabContainer dir={theme.direction}>Item Two</TabContainer>
-        </SwipeableViews>
+          <StyledTabContainer dir={theme.direction}>
+            <WorkshopsTabContainer />
+          </StyledTabContainer>
+          <StyledTabContainer dir={theme.direction}>
+            <PodcastsTabContainer />
+          </StyledTabContainer>
+        </StyledSwipeableViews>
       </div>
     );
   }
@@ -75,3 +84,11 @@ FullWidthTabs.propTypes = {
 };
 
 export default withStyles(styles, { withTheme: true })(FullWidthTabs);
+
+const StyledSwipeableViews = styled(SwipeableViews)`
+  height: 100%;
+`;
+
+const StyledTabContainer = styled(TabContainer)`
+  height: 100%;
+`;
