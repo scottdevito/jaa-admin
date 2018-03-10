@@ -9,6 +9,7 @@ import styled from 'styled-components';
 
 import WorkshopsTabContainer from './workshops/workshops_tab_container';
 import PodcastsTabContainer from './podcasts/podcasts_tab_container';
+import MailingListTabContanier from './mailing-list/mailing_list_tab_container';
 
 function TabContainer({ children, dir }) {
   return (
@@ -59,6 +60,7 @@ class FullWidthTabs extends React.Component {
           >
             <Tab label="Workshops" />
             <Tab label="Podcasts" />
+            <Tab label="Mailing List" />
           </Tabs>
         </AppBar>
         <StyledSwipeableViews
@@ -71,6 +73,9 @@ class FullWidthTabs extends React.Component {
           </StyledTabContainer>
           <StyledTabContainer dir={theme.direction}>
             <PodcastsTabContainer />
+          </StyledTabContainer>
+          <StyledTabContainer dir={theme.direction}>
+            <MailingListTabContanier />
           </StyledTabContainer>
         </StyledSwipeableViews>
       </div>
