@@ -4,6 +4,8 @@ import {
   GET_WORKSHOPS_FAIL,
   GET_EPISODES_SUCCESS,
   GET_EPISODES_FAIL,
+  GET_MAILING_LIST_SUCCESS,
+  GET_MAILING_LIST_FAIL,
 } from './types';
 
 const getWorkshopsData = () => {
@@ -55,8 +57,27 @@ const getPodcastData = () => {
   };
 };
 
-// const getMailingListData = () => {
-//   return;
-// };
+const getMailingListData = () => {
+  return async dispatch => {
+    try {
+      const data = await db
+        .collection('mailingList')
+        .get()
+        .then(function(querySnapshot) {
+          let mailingListArray = [];
 
-export { getWorkshopsData, getPodcastData };
+          querySnapshot.forEach(function(doc) {
+            mailingListArray = [...mailingListArray, doc.data()];
+          });
+          return mailingListArray;
+        });
+
+      dispatch({ type: GET_MAILING_LIST_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({ type: GET_MAILING_LIST_FAIL, payload: error });
+      console.error(error);
+    }
+  };
+};
+
+export { getWorkshopsData, getPodcastData, getMailingListData };

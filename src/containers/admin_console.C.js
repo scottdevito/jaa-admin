@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import AdminConsole from '../components/admin-console/admin_console';
-import { getWorkshopsData, getPodcastData } from '../redux/actions/index';
+import {
+  getWorkshopsData,
+  getPodcastData,
+  getMailingListData,
+} from '../redux/actions/index';
 
 const mapStateToProps = state => {
   return {};
@@ -9,6 +13,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   getWorkshopsData,
   getPodcastData,
+  getMailingListData,
 };
 
 const AdminConsoleContainer = connect(mapStateToProps, mapDispatchToProps)(

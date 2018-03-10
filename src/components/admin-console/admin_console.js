@@ -4,9 +4,14 @@ import AdminTabs from './admin_tabs.MUI';
 
 class AdminConsole extends Component {
   componentDidMount() {
-    this.props.getWorkshopsData().then(() => {
-      this.props.getPodcastData();
-    });
+    this.props
+      .getWorkshopsData()
+      .then(() => {
+        this.props.getPodcastData();
+      })
+      .then(() => {
+        this.props.getMailingListData();
+      });
   }
 
   render() {
