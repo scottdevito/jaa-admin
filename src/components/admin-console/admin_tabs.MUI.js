@@ -72,7 +72,7 @@ class FullWidthTabs extends React.Component {
             <WorkshopsTabContainer />
           </StyledTabContainer>
           <StyledTabContainer dir={theme.direction}>
-            <PodcastsTabContainer />
+            <PodcastsTabContainer {...this.props} />
           </StyledTabContainer>
           <StyledTabContainer dir={theme.direction}>
             <MailingListTabContanier />

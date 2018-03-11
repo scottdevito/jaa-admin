@@ -17,7 +17,7 @@ class AdminConsole extends Component {
   render() {
     return (
       <AdminConsoleWrapper>
-        <AdminTabs />
+        <AdminTabs {...this.props} />
       </AdminConsoleWrapper>
     );
   }

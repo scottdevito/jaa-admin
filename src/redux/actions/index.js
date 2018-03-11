@@ -4,5 +4,12 @@ import {
   getPodcastData,
   getMailingListData,
 } from './getData.A';
+import { addNewEpisode } from './podcast.A';
 
-export { login, getWorkshopsData, getPodcastData, getMailingListData };
+export {
+  login,
+  getWorkshopsData,
+  getPodcastData,
+  getMailingListData,
+  addNewEpisode,
+};

@@ -4,6 +4,7 @@ import {
   getWorkshopsData,
   getPodcastData,
   getMailingListData,
+  addNewEpisode,
 } from '../redux/actions/index';
 
 const mapStateToProps = state => {
@@ -14,6 +15,7 @@ const mapDispatchToProps = {
   getWorkshopsData,
   getPodcastData,
   getMailingListData,
+  addNewEpisode,
 };
 
 const AdminConsoleContainer = connect(mapStateToProps, mapDispatchToProps)(
