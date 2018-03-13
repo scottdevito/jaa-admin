@@ -1,4 +1,4 @@
-import { login } from './login.A';
+import { login, loginPersist, logout } from './login.A';
 import {
   getWorkshopsData,
   getPodcastData,
@@ -12,4 +12,6 @@ export {
   getPodcastData,
   getMailingListData,
   addNewEpisode,
+  loginPersist,
+  logout,
 };

@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import { LOGIN_SUCCESS, LOGIN_FAIL } from './types';
+import { LOGIN_SUCCESS, LOGIN_FAIL, LOGIN_PERSIST, LOGOUT } from './types';
 
 const login = (user, password) => {
   return async dispatch => {
@@ -29,14 +29,17 @@ const loginFail = error => {
   };
 };
 
-// const loginPersist = user => {
-//   return dispatch => {
-//     dispatch({ type: LOGIN_SUCCESS, payload: { user } });
-//     dispatch({ type: SET_USER_AUTH_INFO, payload: { user } });
-//     dispatch(setUserDbInfo(user.email));
-//     dispatch(fetchBelts());
-//     dispatch(fetchBeltImages());
-//   };
-// };
+const loginPersist = user => {
+  return dispatch => {
+    dispatch({ type: LOGIN_PERSIST });
+    dispatch(loginSuccess(user));
+  };
+};
 
-export { login };
+const logout = () => {
+  return dispatch => {
+    dispatch({ type: LOGOUT });
+  };
+};
+
+export { login, loginPersist, logout };
