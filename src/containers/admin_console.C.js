@@ -10,6 +10,7 @@ import {
 const mapStateToProps = state => {
   return {
     email: state.email,
+    mailingListData: state.mailingListData,
   };
 };
 

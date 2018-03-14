@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import List, { ListItem, ListItemText } from 'material-ui/List';
 
 const styles = theme => ({
   root: {
@@ -14,47 +14,23 @@ const styles = theme => ({
 });
 
 function MailingList(props) {
-  const { classes } = props;
+  const { classes, mailingListData } = props;
+
+  const renderMailingListData = () => {
+    if (Object.keys(mailingListData).length !== 0) {
+      return mailingListData.map(person => {
+        return (
+          <ListItem button key={person.email}>
+            <ListItemText primary={person.email} />
+          </ListItem>
+        );
+      });
+    }
+  };
+
   return (
     <div className={classes.root}>
-      <List component="nav">
-        <ListItem button>
-          <ListItemText primary="Chelsea Otakan" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Eric Hoffman" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Eric Hoffman" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Eric Hoffman" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Eric Hoffman" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Eric Hoffman" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Eric Hoffman" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Eric Hoffman" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Eric Hoffman" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Eric Hoffman" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Eric Hoffman" />
-        </ListItem>
-        <ListItem button>
-          <ListItemText primary="Eric Hoffman" />
-        </ListItem>
-      </List>
+      <List component="nav">{renderMailingListData()}</List>
     </div>
   );
 }

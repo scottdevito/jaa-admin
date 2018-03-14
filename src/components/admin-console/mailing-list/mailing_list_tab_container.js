@@ -7,7 +7,7 @@ class MailingListTabContainer extends Component {
   render() {
     return (
       <MailingListTabContainerWrapper>
-        <MailingList />
+        <MailingList {...this.props} />
       </MailingListTabContainerWrapper>
     );
   }
