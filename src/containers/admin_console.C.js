@@ -8,7 +8,9 @@ import {
 } from '../redux/actions/index';
 
 const mapStateToProps = state => {
-  return {};
+  return {
+    email: state.email,
+  };
 };
 
 const mapDispatchToProps = {

@@ -5,6 +5,7 @@ import { login, loginPersist, logout } from '../redux/actions/index';
 const mapStateToProps = state => {
   return {
     loggedIn: state.loggedIn,
+    email: state.email,
   };
 };
 

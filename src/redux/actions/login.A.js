@@ -1,5 +1,11 @@
 import firebase from 'firebase';
-import { LOGIN_SUCCESS, LOGIN_FAIL, LOGIN_PERSIST, LOGOUT } from './types';
+import {
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  LOGIN_PERSIST,
+  LOGOUT,
+  SET_EMAIL,
+} from './types';
 
 const login = (user, password) => {
   return async dispatch => {
@@ -19,6 +25,7 @@ const login = (user, password) => {
 const loginSuccess = data => {
   return dispatch => {
     dispatch({ type: LOGIN_SUCCESS, payload: data });
+    dispatch({ type: SET_EMAIL, payload: data });
   };
 };
 

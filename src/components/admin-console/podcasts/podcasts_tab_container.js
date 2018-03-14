@@ -48,11 +48,13 @@ class PodcastsTabContainer extends Component {
         <Button
           style={{ marginTop: '1rem' }}
           onClick={() => {
-            this.props.addNewEpisode(
-              this.state.title,
-              this.state.date,
-              this.state.url
-            );
+            if (Object.keys(this.props.email).length !== 0) {
+              this.props.addNewEpisode(
+                this.state.title,
+                this.state.date,
+                this.state.url
+              );
+            }
           }}
         >
           Submit

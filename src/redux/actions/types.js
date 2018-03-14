@@ -3,6 +3,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGIN_PERSIST = 'LOGIN_PERSIST';
 export const LOGOUT = 'LOGOUT';
+export const SET_EMAIL = 'SET_EMAIL';
 
 // Podcast
 export const GET_EPISODES_SUCCESS = 'GET_EPISODES_SUCCESS';

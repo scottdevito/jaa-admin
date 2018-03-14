@@ -19,7 +19,8 @@ class App extends Component {
   render() {
     return (
       <StyledApp>
-        {this.props.loggedIn.valueOf() ? (
+        {this.props.loggedIn.valueOf() &&
+        Object.keys(this.props.email).length !== 0 ? (
           <AdminConsoleContainer />
         ) : (
           <Login login={this.props.login} />
