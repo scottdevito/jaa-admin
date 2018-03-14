@@ -28,6 +28,7 @@ function StandardInput(props) {
         onChange={event => {
           props.onInputChange(event, props.labelType);
         }}
+        value={props.value}
       />
     </div>
   );

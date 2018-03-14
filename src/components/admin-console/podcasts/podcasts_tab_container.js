@@ -23,6 +23,12 @@ class PodcastsTabContainer extends Component {
     });
   };
 
+  clearFields = () => {
+    this.setState((prevState, props) => {
+      return { title: '', date: '', url: '' };
+    });
+  };
+
   render() {
     return (
       <PodcastsTabContainerWrapper>
@@ -32,28 +38,35 @@ class PodcastsTabContainer extends Component {
           placeholder="Title"
           labelType="title"
           onInputChange={this.onInputChange}
+          value={this.state.title}
         />
         <StandardInput
           label="Date"
           placeholder="01/01/2018"
           labelType="date"
           onInputChange={this.onInputChange}
+          value={this.state.date}
         />
         <StandardInput
           label="URL Numbers"
           placeholder="000000000"
           labelType="url"
           onInputChange={this.onInputChange}
+          value={this.state.url}
         />
         <Button
           style={{ marginTop: '1rem' }}
           onClick={() => {
             if (Object.keys(this.props.email).length !== 0) {
-              this.props.addNewEpisode(
-                this.state.title,
-                this.state.date,
-                this.state.url
-              );
+              this.props
+                .addNewEpisode(
+                  this.state.title,
+                  this.state.date,
+                  this.state.url
+                )
+                .then(() => {
+                  this.clearFields();
+                });
             }
           }}
         >
