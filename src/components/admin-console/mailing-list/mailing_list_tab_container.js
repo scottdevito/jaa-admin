@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import MailingList from './mailing_list.MUI';
+
 class MailingListTabContainer extends Component {
   render() {
     return (
       <MailingListTabContainerWrapper>
-        MailingListTabContainer
+        <MailingList />
       </MailingListTabContainerWrapper>
     );
   }
