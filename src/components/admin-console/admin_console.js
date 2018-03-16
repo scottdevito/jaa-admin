@@ -35,6 +35,7 @@ const AdminConsoleWrapper = styled.div`
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 
   /* Styling for mobile screens */
   @media (max-width: 425px) {

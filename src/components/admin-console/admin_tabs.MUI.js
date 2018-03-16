@@ -92,6 +92,7 @@ export default withStyles(styles, { withTheme: true })(FullWidthTabs);
 
 const StyledSwipeableViews = styled(SwipeableViews)`
   height: 100%;
+  padding-top: 1rem;
 `;
 
 const StyledTabContainer = styled(TabContainer)`
