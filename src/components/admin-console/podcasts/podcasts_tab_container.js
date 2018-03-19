@@ -30,6 +30,7 @@ class PodcastsTabContainer extends Component {
   };
 
   render() {
+    let { title, date, url } = this.state;
     return (
       <PodcastsTabContainerWrapper>
         <StyledHeader>Add New Podcast</StyledHeader>
@@ -38,26 +39,29 @@ class PodcastsTabContainer extends Component {
           placeholder="Title"
           labelType="title"
           onInputChange={this.onInputChange}
-          value={this.state.title}
+          value={title}
         />
         <StandardInput
           label="Date"
           placeholder="01/01/2018"
           labelType="date"
           onInputChange={this.onInputChange}
-          value={this.state.date}
+          value={date}
         />
         <StandardInput
           label="URL Numbers"
           placeholder="000000000"
           labelType="url"
           onInputChange={this.onInputChange}
-          value={this.state.url}
+          value={url}
         />
         <Button
           style={{ marginTop: '1rem' }}
           onClick={() => {
-            if (Object.keys(this.props.email).length !== 0) {
+            if (
+              Object.keys(this.props.email).length !== 0 &&
+              (title && date && url) !== ''
+            ) {
               this.props
                 .addNewEpisode(
                   this.state.title,
@@ -85,7 +89,7 @@ const PodcastsTabContainerWrapper = styled.div`
   justify-content: center;
   align-items: center;
   align-content: center;
-  height: 100%;
+  height: 50%;
   width: 100%;
 `;
 
