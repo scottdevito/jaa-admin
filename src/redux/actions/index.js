@@ -5,6 +5,7 @@ import {
   getMailingListData,
 } from './getData.A';
 import { addNewEpisode } from './podcast.A';
+import { addNewWorkshop } from './workshop.A';
 
 export {
   login,
@@ -14,4 +15,5 @@ export {
   addNewEpisode,
   loginPersist,
   logout,
+  addNewWorkshop,
 };

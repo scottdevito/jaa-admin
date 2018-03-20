@@ -16,8 +16,12 @@ class WorkshopsTabContainer extends Component {
       location: '',
       name: '',
       ticketLink: '',
-      timeStart: '',
-      timeEnd: '',
+      timeStartHour: '',
+      timeStartMinutes: '',
+      timeStartAMPM: '',
+      timeEndHour: '',
+      timeEndMinutes: '',
+      timeEndAMPM: '',
       venue: '',
       venueLink: '',
       date: '',
@@ -42,8 +46,12 @@ class WorkshopsTabContainer extends Component {
         location: '',
         name: '',
         ticketLink: '',
-        timeStart: '',
-        timeEnd: '',
+        timeStartHour: '',
+        timeStartMinutes: '',
+        timeStartAMPM: '',
+        timeEndHour: '',
+        timeEndMinutes: '',
+        timeEndAMPM: '',
         venue: '',
         venueLink: '',
         date: '',
@@ -52,6 +60,25 @@ class WorkshopsTabContainer extends Component {
   };
 
   render() {
+    let {
+      address,
+      descriptionHeader,
+      descriptionMain,
+      regularPrice,
+      location,
+      name,
+      ticketLink,
+      timeStartHour,
+      timeStartMinutes,
+      timeStartAMPM,
+      timeEndHour,
+      timeEndMinutes,
+      timeEndAMPM,
+      venue,
+      venueLink,
+      date,
+    } = this.state;
+
     return (
       <WorkshopsTabContainerWrapper>
         <StyledHeader>Add New Workshop</StyledHeader>
@@ -60,98 +87,137 @@ class WorkshopsTabContainer extends Component {
           placeholder="Name of workshop"
           labelType="name"
           onInputChange={this.onInputChange}
-          value={this.state.name}
+          value={name}
         />
         <StandardInput
           label="Date"
           placeholder="01/01/2018"
           labelType="date"
           onInputChange={this.onInputChange}
-          value={this.state.date}
+          value={date}
         />
         <StandardInput
           label="Venue"
           placeholder="Name of venue"
           labelType="venue"
           onInputChange={this.onInputChange}
-          value={this.state.venue}
+          value={venue}
         />
         <StandardInput
-          label="Venue Link"
-          placeholder="Link to venue's site"
+          label="Link to venue's site"
+          placeholder="http://www.venuesitelink.com"
           labelType="venueLink"
           onInputChange={this.onInputChange}
-          value={this.state.venueLink}
+          value={venueLink}
         />
         <StandardInput
-          label="Ticket Link"
-          placeholder="Direct link to tickets"
+          label="Direct Link to Tickets"
+          placeholder="http://www.directticketlink.com"
           labelType="ticketLink"
           onInputChange={this.onInputChange}
-          value={this.state.ticketLink}
+          value={ticketLink}
         />
         <StandardInput
           label="Venue Address"
           placeholder="899 Something Street"
           labelType="address"
           onInputChange={this.onInputChange}
-          value={this.state.address}
+          value={address}
         />
         <StandardInput
           label="Town, City"
           placeholder="Denver, CO"
           labelType="location"
           onInputChange={this.onInputChange}
-          value={this.state.location}
+          value={location}
         />
         <StandardInput
-          label="Start Time"
-          placeholder="4pm"
-          labelType="timeStart"
+          label="Start Hour"
+          placeholder="4"
+          labelType="timeStartHour"
           onInputChange={this.onInputChange}
-          value={this.state.timeStart}
+          value={timeStartHour}
         />
         <StandardInput
-          label="End Time"
-          placeholder="6pm"
-          labelType="timeEnd"
+          label="Start Minutes"
+          placeholder="30"
+          labelType="timeStartMinutes"
           onInputChange={this.onInputChange}
-          value={this.state.timeEnd}
+          value={timeStartMinutes}
+        />
+        <StandardInput
+          label="Start AM/PM"
+          placeholder="AM or PM"
+          labelType="timeStartAMPM"
+          onInputChange={this.onInputChange}
+          value={timeStartAMPM}
+        />
+        <StandardInput
+          label="End Hour"
+          placeholder="6"
+          labelType="timeEndHour"
+          onInputChange={this.onInputChange}
+          value={timeEndHour}
+        />
+        <StandardInput
+          label="End Minutes"
+          placeholder="00"
+          labelType="timeEndMinutes"
+          onInputChange={this.onInputChange}
+          value={timeEndMinutes}
+        />
+        <StandardInput
+          label="End AM/PM"
+          placeholder="AM or PM"
+          labelType="timeEndAMPM"
+          onInputChange={this.onInputChange}
+          value={timeEndAMPM}
         />
         <StandardInput
           label="Price"
           placeholder="30"
           labelType="regularPrice"
           onInputChange={this.onInputChange}
-          value={this.state.regularPrice}
+          value={regularPrice}
         />
         <StandardInput
           label="Description Header"
           placeholder="Tag line for workshop"
           labelType="descriptionHeader"
           onInputChange={this.onInputChange}
-          value={this.state.descriptionHeader}
+          value={descriptionHeader}
         />
         <StandardInput
           label="Description Body"
           placeholder="Description of workshop"
           labelType="descriptionMain"
           onInputChange={this.onInputChange}
-          value={this.state.descriptionMain}
+          value={descriptionMain}
         />
         <Button
           style={{ marginTop: '1rem' }}
           onClick={() => {
-            if (Object.keys(this.props.email).length !== 0) {
-              this.props
-                .addNewEpisode(
-                  this.state.title,
-                  this.state.date,
-                  this.state.url
-                )
-                .then(() => {
-                  this.clearFields();
-                });
+            if (
+              (address &&
+                descriptionHeader &&
+                descriptionMain &&
+                regularPrice &&
+                location &&
+                name &&
+                ticketLink &&
+                timeStartHour &&
+                timeStartMinutes &&
+                timeStartAMPM &&
+                timeEndHour &&
+                timeEndMinutes &&
+                timeEndAMPM &&
+                venue &&
+                venueLink &&
+                date) !== ''
+            ) {
+              this.props.addNewWorkshop(this.state).then(() => {
+                this.clearFields();
+              });
             }
           }}
         >
