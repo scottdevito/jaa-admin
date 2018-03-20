@@ -37,7 +37,7 @@ const addNewWorkshop = ({
         descriptionHeader,
         descriptionMain,
         regularPrice,
-        earlyBirdPrice: regularPrice - 5,
+        earlybirdPrice: regularPrice - 5,
         location,
         name,
         ticketLink,
